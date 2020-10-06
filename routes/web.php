@@ -20,7 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'GuestController@index')->name('home');
-Route::get('/show/{id}', 'GuestController@show') -> name('show');
-Route::get('/delete/{id}', 'LoggedController@delete') -> name('delete');
+Route::get('/mail/{id}', 'GuestController@show') -> name('show');
+
+Route::get('/mail/delete/{id}', 'LoggedController@delete') -> name('delete');
+
+Route::get('/create', 'LoggedController@create')->name('create');
+Route::post('/create/store', 'LoggedController@store' ) -> name('store');
+
+Route::get('/mail/edit/{id}', 'LoggedController@edit')->name('edit');
+Route::post('/mail/update/{id}', 'LoggedController@update' ) -> name('update');
+
 
 

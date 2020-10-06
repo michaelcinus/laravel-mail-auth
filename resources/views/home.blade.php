@@ -8,6 +8,13 @@
                 <div class="card-header">MAILS</div>
 
                 <div class="card-body">
+                @auth 
+                <a class="btn btn-secondary " href="{{route('create')}}">CREATE NEW MAIL </a> <br><br>
+
+                @else
+                    IF YOU WANT CREATE MAIL<a class="btn btn-link " href="{{ route('login') }}">LOGIN </a><br><br>
+                @endauth
+            
                 <ul>
                     @foreach ($mails as $mail)
             

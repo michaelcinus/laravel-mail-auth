@@ -18,9 +18,10 @@
                             <br><br>
 
                             @auth 
+                                <a class="btn btn-primary" href="{{route('edit', $mail -> id)}}">EDIT</a>
                                 <a class="btn btn-danger" href="{{route('delete', $mail -> id)}}">DELETE</a>
                             @else
-                                <a class="nav-link " href="{{ route('login') }}">LOGIN </a>
+                            IF YOU WANT DELETE MAIL <a class="btn btn-link " href="{{ route('login') }}">LOGIN </a>
                             @endauth
             
                         </li>
