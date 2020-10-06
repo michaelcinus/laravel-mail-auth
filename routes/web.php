@@ -19,4 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'GuestController@index')->name('home');
+Route::get('/show/{id}', 'GuestController@show') -> name('show');
+Route::get('/delete/{id}', 'LoggedController@delete') -> name('delete');
+
+
