@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\mail;
+use App\Mail\UserAction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class LoggedController extends Controller
 {
@@ -16,6 +19,12 @@ class LoggedController extends Controller
 
         $mail = mail::findOrFail($id);
         $mail -> delete();
+
+        $user = auth::user();
+        $action = 'DELETE';
+
+        Mail::to('admin@boolean.it')->send(new UserAction($user, $mail, $action));
+
         return redirect() -> route('home');
 
     }
